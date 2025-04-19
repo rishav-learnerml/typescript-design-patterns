@@ -191,3 +191,133 @@
 
 // renderUI(windowsUIFactory);
 // renderUI(macUIFactory);
+
+// ------------------- Behavioural Design Patterns ----------------------
+
+// Simple Facade
+
+// import { Boiler, Brewer, CoffeeFacade, Grinder } from "./structural/facade/FacadeSimple";
+
+// const boiler = new Boiler();
+// const grinder = new Grinder();
+// const brewer = new Brewer();
+
+// const coffeeFacade = new CoffeeFacade(grinder,boiler,brewer);
+
+// coffeeFacade.makeCoffee()
+
+//Facade RealWorld
+
+// import MovieFacade from "./structural/facade/FacadeRW";
+
+// const movie = new MovieFacade()
+
+// movie.bookMovie("Intersteller",1000,"Rishav","Ris12345")
+
+// Bridge Design Pattern
+
+// Simple Bridge
+
+// import {
+//   AudioPlayer,
+//   MacMediaPlayer,
+//   VideoPlayer,
+//   WindowsMediaPlayer,
+// } from "./structural/bridge/SimpleBridge";
+
+// const windowsVideoPlayer = new VideoPlayer(new WindowsMediaPlayer());
+// windowsVideoPlayer.playFile();
+
+// const macAudioPlayer = new AudioPlayer(new MacMediaPlayer());
+// macAudioPlayer.playFile();
+
+// import {
+//   ClientDbService,
+//   MongoDb,
+//   PostgresDb,
+// } from "./structural/bridge/BridgeRW";
+
+// const postgresDB = new PostgresDb();
+// const mongoDb = new MongoDb();
+
+// const mongoDbService = new ClientDbService(mongoDb);
+// const postgresDbService = new ClientDbService(postgresDB);
+
+// postgresDbService.fetchData(
+//   "CREATE TABLE IF NOT EXISTS Users(id SERIAL PTIMARY KEY, username VARCHAR(256), password VARCHAR(256));"
+// );
+
+// mongoDbService.fetchData("users.find({})");
+
+// import {
+//   Designer,
+//   Developer,
+//   Manager,
+// } from "./structural/composite/CompositeSimple";
+
+// const developer = new Developer("Rishav", 50000);
+// const designer = new Designer("Ramit", 40000);
+// const manager = new Manager("Arun", 100000, [developer, designer]);
+
+// manager.getEmployees();
+// const developer2 = new Developer("Prity", 60000);
+// manager.addEmployee(developer2);
+
+// manager.getEmployees();
+
+// import { FileClass, Folder } from "./structural/composite/CompositeRW";
+
+// const file1 = new FileClass("file1.txt", 34);
+// const file2 = new FileClass("file2.txt", 45);
+
+// const folder = new Folder("Devops", [file1, file2]);
+
+// console.log(folder.getName(), " : ", folder.getSize() ,"MB");
+
+// folder.getFiles().forEach((file) => {
+//   console.log("    - " + file.getName() + " : " + file.getSize() + " MB");
+// });
+
+// import { BurgerMeal,ClassicBurger } from "./structural/Decorator/SimpleDecorator";
+
+// let burger = new ClassicBurger();
+// console.log(`${burger.getName()} costs ${burger.getPrice()}`)
+// burger = new BurgerMeal(burger);
+// console.log(`${burger.getName()} costs ${burger.getPrice()}`)
+
+// Decorator Real World
+
+// import { AuthMiddleware, BaseServer, LogMiddleware, requesttypes, ServerRequest } from "./structural/Decorator/DecoratorRW";
+
+// let server:ServerRequest = new BaseServer();
+// server = new LogMiddleware(server);
+// server = new AuthMiddleware(server)
+
+// server.handle({
+//     type: requesttypes.POST,
+//     body:{
+//         username:"rishav",
+//         password:"ris1234"
+//     }
+// })
+
+// Simple Adapter
+
+// import {
+//   Square,
+//   Rectangle,
+//   SquareToRectangle,
+// } from "./structural/Adapter/SimpleAdapter";
+
+// let square = new Square(5);
+// let newSquare = new SquareToRectangle(square);
+
+// console.log(
+//   `Height : ${newSquare.getHeight()}, Width : ${newSquare.getWidth()}, Area : ${newSquare.area()}`
+// );
+
+import { DBAdapter,MySql,PostgreSql } from "./structural/Adapter/AdapterRW";
+
+let database = new DBAdapter(new PostgreSql());
+database.connectToMySqlDB("postgresql://rishav@ris1234:5432/postgres");
+database.queryMySqlDB("SELECT * FROM USERS");
