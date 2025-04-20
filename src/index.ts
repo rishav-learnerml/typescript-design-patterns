@@ -316,8 +316,41 @@
 //   `Height : ${newSquare.getHeight()}, Width : ${newSquare.getWidth()}, Area : ${newSquare.area()}`
 // );
 
-import { DBAdapter,MySql,PostgreSql } from "./structural/Adapter/AdapterRW";
+// import { DBAdapter,MySql,PostgreSql } from "./structural/Adapter/AdapterRW";
 
-let database = new DBAdapter(new PostgreSql());
-database.connectToMySqlDB("postgresql://rishav@ris1234:5432/postgres");
-database.queryMySqlDB("SELECT * FROM USERS");
+// let database = new DBAdapter(new PostgreSql());
+// database.connectToMySqlDB("postgresql://rishav@ris1234:5432/postgres");
+// database.queryMySqlDB("SELECT * FROM USERS");
+
+// ---- Behavioral Design Patterns -----
+
+// Observer DP
+
+// import {
+//   Observer,
+//   Subject,
+//   ConcreteObserver,
+//   ConcreteSubject,
+// } from "./behavioral/observer/SimpleObserver";
+
+// const subject: Subject = new ConcreteSubject();
+// const observer1: Observer = new ConcreteObserver(1);
+// const observer2: Observer = new ConcreteObserver(2);
+
+// subject.addObserver(observer1);
+// subject.addObserver(observer2);
+
+// subject.setState(3);
+
+// import { DisplayWeather, WeatherData } from "./behavioral/observer/ObserverRW";
+
+// const weather = new WeatherData();
+// const displayWData = new DisplayWeather(weather);
+
+// weather.setMeasureMents(35, 97, 20);
+// weather.setMeasureMents(40, 95, 30);
+
+// displayWData.update(35, 97, 20)
+
+// displayWData.display();
+
