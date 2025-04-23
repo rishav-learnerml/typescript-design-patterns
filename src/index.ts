@@ -354,3 +354,147 @@
 
 // displayWData.display();
 
+// import { ArrayIterator } from "./behavioral/iterator/SimpleIterator";
+
+// const names = new ArrayIterator<string>([
+//   "Rishav",
+//   "Sandipan",
+//   "Partha",
+//   "Ramit",
+//   "Raja",
+// ]);
+
+// while (names.hasNext()) {
+//   console.log(names.next());
+// }
+
+// import {
+//   User,
+//   ConcreteUserIterator,
+//   ConcreteUser,
+// } from "./behavioral/iterator/IteratorRW";
+
+// const users = new ConcreteUserIterator([
+//   new ConcreteUser(
+//     "Rishav",
+//     "Chatterjee",
+//     "rishav@gmail.com",
+//     "ris1234",
+//   ),
+// ]);
+
+//Strategy DP
+
+// import { CreditCardStrategy,UPIStrategy,ShoppingCart } from "./behavioral/strategy/SimpleStrategy"
+
+// const paymentMethod = new ShoppingCart(new UPIStrategy());
+// paymentMethod.addToCart(100);
+// paymentMethod.addToCart(50);
+
+// paymentMethod.checkout();
+
+// paymentMethod.setpaymentStrategy(new CreditCardStrategy());
+// paymentMethod.addToCart(134);
+
+// paymentMethod.checkout()
+
+// import { GoRideStrategy,PremireRideStrategy,SharedRideStrategy,BookCab } from "./behavioral/strategy/StrategyRW";
+
+// const cab = new BookCab(new SharedRideStrategy());
+// cab.rideCab(150);
+// cab.rideCab(250);
+
+// cab.completeRide();
+
+// cab.setRide(new GoRideStrategy());
+// cab.rideCab(300);
+// cab.completeRide()
+
+// import {
+//   SeniorCitizenTicket,
+//   TatkalTicket,
+// } from "./behavioral/template/SimpleTemplate";
+
+// let ticket = new SeniorCitizenTicket(
+//   "rishav",
+//   "ris1234",
+//   "Vande Varat",
+//   "21/04/2025",
+//   2,
+//   2000
+// );
+// ticket.bookTicket();
+
+// ticket = new TatkalTicket(
+//   "rishav",
+//   "ris1234",
+//   "Duronto",
+//   "22/04/2025",
+//   4,
+//   4000
+// );
+// ticket.bookTicket();
+
+// import {
+//   Light,
+//   SimpleRemoteControl,
+//   TurnOffCommand,
+//   TurnOnCommand,
+// } from "./behavioral/command/SimpleCommand";
+
+// const remoteControl: SimpleRemoteControl = new SimpleRemoteControl();
+// const light: Light = new Light();
+
+// //Turn On
+
+// remoteControl.setCommand(new TurnOnCommand(light));
+// remoteControl.buttonWasPressed();
+
+// //Turn Off
+
+// remoteControl.setCommand(new TurnOffCommand(light));
+// remoteControl.buttonWasPressed();
+
+// //undo
+
+// remoteControl.undoButtonWasPressed();
+
+// //create a queue of comands
+
+// remoteControl.setCommand(new TurnOffCommand(light))
+// remoteControl.setCommand(new TurnOnCommand(light))
+
+// while(remoteControl.hasCommands()){
+//     remoteControl.buttonWasPressed()
+// }
+
+// import {
+//   CreateFile,
+//   ReadFile,
+//   UpdateFile,
+//   DeleteFile,
+//   MyFileSystem,
+// } from "./behavioral/command/CommandRW";
+
+// const filesystem = new MyFileSystem();
+
+// const addCommand = new CreateFile("/c:/users/rishav/file.txt");
+// const updateCommand = new UpdateFile(
+//   "/c:/users/rishav/file.txt",
+//   "Rishav",
+//   "Ramit"
+// );
+// const readCommand = new CreateFile("/c:/users/rishav/file.txt");
+// const deleteCommand = new DeleteFile("/c:/users/rishav/file.txt");
+
+// filesystem.addCommand(addCommand);
+// filesystem.addCommand(updateCommand);
+// filesystem.addCommand(readCommand);
+// filesystem.addCommand(deleteCommand);
+
+// while (filesystem.hasCommands()) {
+//   filesystem.executeCommand();
+// }
+
+// State Design Pattern
+
